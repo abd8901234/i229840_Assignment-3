@@ -75,7 +75,7 @@ if st.sidebar.button("📡 Fetch Stock Data"):
         st.error("❌ Data fetch failed. Please verify your ticker and date range.")
 
 # Feature Engineering
-if st.button("⚙ Feature Engineering"):
+if st.button("⚙️ Feature Engineering"):
     if st.session_state["data_loaded"]:
         data = st.session_state["data"].copy()
         adj_close = None
@@ -95,9 +95,9 @@ if st.button("⚙ Feature Engineering"):
             st.session_state["split_done"] = False
             st.session_state["model_trained"] = False
         else:
-            st.error("⚠ Could not find 'Adj Close' column.")
+            st.error("⚠️ Could not find 'Adj Close' column.")
     else:
-        st.warning("⚠ Please fetch data first.")
+        st.warning("⚠️ Please fetch data first.")
 
 # Preprocessing
 if st.button("🧹 Preprocessing"):
@@ -107,7 +107,7 @@ if st.button("🧹 Preprocessing"):
         st.write(data.describe())
         st.session_state["data"] = data
     else:
-        st.warning("⚠ Load data first.")
+        st.warning("⚠️ Load data first.")
 
 # Split Data
 if st.button("🧪 Train/Test Split"):
@@ -126,7 +126,7 @@ if st.button("🧪 Train/Test Split"):
         st.session_state["split_done"] = True
         st.session_state["model_trained"] = False
     else:
-        st.warning("⚠ Run feature engineering first.")
+        st.warning("⚠️ Run feature engineering first.")
 
 # Model Training
 if st.button("🤖 Train Model"):
@@ -137,7 +137,7 @@ if st.button("🤖 Train Model"):
         st.session_state["model_trained"] = True
         st.success("✅ Model trained!")
     else:
-        st.warning("⚠ Run train/test split first.")
+        st.warning("⚠️ Run train/test split first.")
 
 # Evaluate Model
 if st.button("📈 Evaluate Model"):
@@ -151,7 +151,7 @@ if st.button("📈 Evaluate Model"):
         results_df = pd.DataFrame({"Actual": st.session_state["y_test"].values, "Predicted": y_pred})
         st.line_chart(results_df)
     else:
-        st.warning("⚠ Please train the model first.")
+        st.warning("⚠️ Please train the model first.")
 
 # Visualize Results
 if st.button("🔍 Visualize Predictions"):
@@ -163,4 +163,4 @@ if st.button("🔍 Visualize Predictions"):
         fig = px.scatter(results, x="Actual", y="Predicted", title="Actual vs Predicted Returns")
         st.plotly_chart(fig)
     else:
-        st.warning("⚠ Please train the model first.")
+        st.warning("⚠️ Please train the model first.")
