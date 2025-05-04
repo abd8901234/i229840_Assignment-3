@@ -1,6 +1,6 @@
-streamlit 
-yfinance 
-pandas 
-numpy 
-sklearn
-plotly.express
+streamlit
+yfinance
+pandas
+numpy
+scikit-learn
+plotly
